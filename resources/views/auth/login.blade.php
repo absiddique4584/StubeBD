@@ -1,73 +1,96 @@
-@extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<!doctype html>
+<html lang="en" class="fixed accounts sign-in">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Glory Technologies |BD</title>
+    <link rel="icon" sizes="120x120" href="{{asset('assets/admin/favicon/apple-icon-120x120.png')}}">
+    <!--BASIC css-->
+    <!-- ========================================================= -->
+    <link rel="stylesheet" href="{{asset('assets/admin/vendor/bootstrap/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/admin/vendor/font-awesome/css/font-awesome.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/admin/vendor/animate.css/animate.css')}}">
+    <!--SECTION css-->
+    <!-- ========================================================= -->
+    <!--TEMPLATE css-->
+    <!-- ========================================================= -->
+    <link rel="stylesheet" href="{{asset('assets/admin/stylesheets/css/style.css')}}">
+</head>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+<body>
+    <div class="wrap">
+        <!-- page BODY -->
+        <!-- ========================================================= -->
+        <div class="page-body animated slideInDown">
+            <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+            <!--LOGO-->
+            <div class="text-center">
+                <h4>Glory Technologies BD</h4>
+            </div>
+            <div class="box">
+                <!--SIGN IN FORM-->
+                <div class="panel mb-none">
+                    <div class="panel-content bg-scale-0">
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <div class="form-group mt-md">
+                            <span class="input-with-icon">
+                                 <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                <i class="fa fa-envelope"></i>
+                            </span>
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                            <div class="form-group">
+                            <span class="input-with-icon">
+                                 <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                <i class="fa fa-key"></i>
+                            </span>
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
+                            <div class="form-group">
+                                <div class="checkbox-custom checkbox-primary">
+                                    <input type="checkbox" id="remember-me" value="option1" checked>
+                                    <label class="check" for="remember-me">Remember me</label>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block">Login</button>
                             </div>
-                        </div>
-                    </form>
+                            <div class="form-group text-center">
+                                Don't Have an account?, <a href="{{route('register')}}">Register</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
+            <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
         </div>
     </div>
-</div>
-@endsection
+    <!--BASIC scripts-->
+    <!-- ========================================================= -->
+    <script src="{{asset('assets/admin/vendor/jquery/jquery-1.12.3.min.js')}}"></script>
+    <script src="{{asset('assets/admin/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/admin/vendor/nano-scroller/nano-scroller.js')}}"></script>
+    <!--TEMPLATE scripts-->
+    <!-- ========================================================= -->
+    <script src="{{asset('assets/admin/javascripts/template-script.min.js')}}"></script>
+    <script src="{{asset('assets/admin/javascripts/template-init.min.js')}}"></script>
+    <!-- SECTION script and examples-->
+    <!-- ========================================================= -->
+</body>
+</html>
+
+
+
+

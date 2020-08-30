@@ -16,20 +16,21 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+
+
     /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        return view('home');
+        return view('admin.dashboard');
     }
 
 
-        public function adminHome()
-    {
-        return view('adminHome');
-
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function adminHome(){
+        return view('admin.dashboard');
     }
 }
